@@ -10,6 +10,7 @@ var es = require('event-stream');
 var order = require('gulp-order');
 var watch = require('gulp-watch');
 var browserSync = require('browser-sync').create();
+var templateCache = require('gulp-angular-templatecache');
 
 
 
@@ -28,14 +29,23 @@ gulp.task('inject', function () {
 gulp.task('concat', function () {
     return gulp.src(['src/scripts/**/*.js'])
         .pipe(order([
-            'src/scripts/**/*.module.js',
-            'src/scripts/**/*.routes.js',
-            'src/scripts/**/*.controller.js',
-            'src/scripts/**/*.service.js',
-            'src/scripts/**/*.js'
-        ], { base: './' }))
+           '**/app.module.js',
+            '**/*.module.js',
+            '**/*.js'
+        ]))
         .pipe(concat('scripts/main.js'))
         .pipe(gulp.dest('./dest/public'));
+});
+gulp.task('template', function(){
+return gulp.src(['src/**/*.html', '!src/index.html'])
+    .pipe(templateCache({
+        module: 'alphaBeta',
+        transformUrl: function(url) {
+            console.log(url);
+            return url.replace(/^/, '/public/')
+        }
+    }))
+    .pipe(gulp.dest('dest/public/scripts'));
 });
 
 gulp.task('concatBowerFiles', function () {
@@ -63,9 +73,10 @@ gulp.task('watch', function () {
             baseDir: "dest"
         }
     });
+    gulp.start('default');
     gulp.watch('src/**/*', ['default'])
     gulp.watch("dest/*.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['copy', 'less', 'concatBowerFiles', 'concat', 'inject'], function () {
+gulp.task('default', ['copy', 'less', 'concatBowerFiles', 'template', 'concat', 'inject'], function () {
 });

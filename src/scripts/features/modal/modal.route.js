@@ -2,14 +2,18 @@
     angular.module('alphaBeta.modal')
         .config(configuration);
 
-    configuration.$inject = ['$stateProvider']
-    function configuration($stateProvider) {
-        console.log($stateProvider)
+    configuration.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+
+    function configuration($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('modal', {
                 url: '/',
-                template: '<h1>Chintan</h1>'
-            });
-        console.log('I am in alphaBeta modal router');
+                templateUrl: 'public/scripts/features/modal/modal.html',
+                controller: 'ModalController',
+                controllerAs: 'vm'
+            })
+
+        $urlRouterProvider.otherwise('/index');
+        $locationProvider.html5Mode(true);
     }
 })();
