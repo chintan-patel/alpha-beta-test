@@ -16,9 +16,10 @@ gulp.task('clean', function () {
         'dest/css'
     ]);
 });
-gulp.task('bower', function () {
-    return gulp.src('src/index.html')
+gulp.task('inject', function () {
+     return gulp.src('src/index.html')
         .pipe(wiredep())
+        .pipe(inject(gulp.src(['dest/**/**.js', 'dest/**/*.css'])))
         .pipe(gulp.dest('./dest'));
 });
 
@@ -30,11 +31,11 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('dev:copy', function () {
+gulp.task('copy', function () {
     return gulp.src(['src/**/*.js'])
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('default', ['clean', 'bower', 'dev:copy', 'less'], function () {
+gulp.task('default', ['copy', 'less', 'inject'], function () {
 
 });
