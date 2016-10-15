@@ -1,0 +1,25 @@
+{
+  "name": "alpha-beta-test",
+  "authors": [
+    "patelchintanm@gmail.com"
+  ],
+  "description": "The test for showing alpha beta test",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.2.0",
+    "bootstrap": "^3.3.7"
+  }
+}
