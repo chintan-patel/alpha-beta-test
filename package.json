@@ -11,7 +11,10 @@
   "dependencies": {},
   "devDependencies": {
     "del": "^2.2.2",
+    "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "^0.0.2",
     "gulp-inject": "^4.1.0",
     "gulp-less": "^3.1.0",
     "gulp-wiredep": "^0.0.0",
