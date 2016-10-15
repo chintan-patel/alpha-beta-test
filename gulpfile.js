@@ -3,12 +3,18 @@ var wiredep = require('wiredep').stream;
 var inject = require('gulp-inject');
 var less = require('gulp-less');
 var path = require('path');
+var del = require('del');
 
+gulp.task('clean', function() {
+    return del([
+        'dest/css',
+        'dest/index.html',
+        'dest/scripts'
+    ]);
+});
 gulp.task('bower', function () {
     return gulp.src('src/index.html')
-    .pipe(wiredep({
-
-    }))
+    .pipe(wiredep())
     .pipe(gulp.dest('./dest'));
 });
 
@@ -20,8 +26,6 @@ gulp.task('less', function () {
     .pipe(gulp.dest('./dest'));
 });
 
-
-
 gulp.task('index', function () {
   var sources = gulp.src(['./dest/**/*.js', './dest/**/*.css'], {read: false});
 
@@ -30,6 +34,6 @@ gulp.task('index', function () {
     .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('default', ['less', 'bower', 'index'],  function(){
+gulp.task('default', ['clean', 'less', 'bower', 'index'],  function(){
 
 });
