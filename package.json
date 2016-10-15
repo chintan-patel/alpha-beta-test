@@ -12,6 +12,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-inject": "^4.1.0",
+    "gulp-less": "^3.1.0",
     "gulp-wiredep": "^0.0.0",
     "wiredep": "^4.0.0"
   }
