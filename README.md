@@ -51,6 +51,8 @@ This is a small module which shows the variation of the image on the modal popup
 
 - Preprocessor: LESS with Bootstrap 3
 - UI Framework: Angular 1.5
-- Workflow: gulp, browser-sync
+- Workflow: gulp
+- Local Dev Server: browser-sync
 - Package Manager: yarn
-
+- Node modules: Listed in `package.json` file
+- Bower Components: Listed in `bower.json` file
