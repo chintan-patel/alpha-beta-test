@@ -11,7 +11,7 @@
         vm.developerDebug = false;
         vm.submit = submit;
         vm.user = {
-            state: '0'
+            state: ''
         }
         vm.closeModal = closeModal;
 
@@ -31,7 +31,7 @@
         }
 
         vm.states = {
-            0: 'State',
+            "": 'State',
             AL: 'Alabama',
             AK: 'Alaska',
             AS: 'American Samoa',

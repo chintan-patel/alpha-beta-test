@@ -7,16 +7,16 @@
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 				<div class="form-group">
 					<label for="formGroupExampleInput">&nbsp;</label>
-					<input type="text" class="form-control" name="name" ng-model="vm.user.name" placeholder="Name" ng-required="true" />
-					<div class="help-block alert alert-danger" ng-if="form.name.$dirty && form.name.$error.required">
+					<input type="text" class="form-control" name="name" ng-model="vm.user.name" placeholder="Name*" ng-required="true" />
+					<div class="help-block alert alert-danger" ng-if="(form.$submitted || form.name.$dirty) && form.name.$error.required">
 						Name is a required field.
 					</div>
 				</div>
 
 				<div class="form-group ">
 					<label for="">&nbsp;</label>
-					<input type="email" class="form-control" name="email" ng-model="vm.user.email" placeholder="Email" required />
-					<div class="help-block alert alert-danger" ng-if="form.email.$dirty && form.email.$invalid">
+					<input type="email" class="form-control" name="email" ng-model="vm.user.email" placeholder="Email*" required />
+					<div class="help-block alert alert-danger" ng-if="(form.$submitted || form.email.$dirty) && form.email.$invalid">
 						<div ng-if="form.email.$error.required">
 							Email is a required field.
 						</div>
@@ -41,7 +41,7 @@
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 						<div class="form-group">
-							<select name="form.state" ng-model="vm.user.state" ng-options="key as value for (key,value) in vm.states" class="form-control">
+							<select name="form.state" ng-model="vm.user.state" ng-options="key as value for (key,value) in vm.states" class="form-control" ng-class="{'valid': vm.user.state !== ''}">
 								<option ng-value="0">State</option>
 							</select>
 							<span class="caret"></span>
@@ -54,7 +54,7 @@
 					</div>
 				</div>
 				<div class="form-group text-center visible-xs">
-					<input type="submit" class="btn btn-primary btn-large btn-block" name="submitButton" ng-disabled="form.$invalid" value="Submit"
+					<input type="submit" class="btn btn-primary btn-large btn-block" name="submitButton" value="Submit"
 					/>
 				</div>
 			</div>
@@ -65,11 +65,11 @@
 					<img ng-if="!vm.variation" style="" ng-src="/public/images/image-variation.png" alt="" />
 				</div>
 				<div class="form-group text-center">
-					<input type="submit" class="btn btn-primary btn-large" name="submitButton" ng-disabled="form.$invalid" value="Submit" />
+					<input type="submit" class="btn btn-primary btn-large" name="submitButton" value="Submit" />
 				</div>
 			</div>
 		</div>
-		<div class="form-group hide">
+		<div class="form-group">
 			<input type="checkbox" class="" ng-model="vm.developerDebug" /> Show Developer tool
 		</div>
 		<div class="well" ng-if="vm.developerDebug">

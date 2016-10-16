@@ -13,14 +13,14 @@
 					<button class="btn btn-primary btn-large btn-block" ng-click="vm.showPrice(product)"><i class="fa fa-usd"></i> Price</button>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
-					<button class="btn btn-secondary btn-large btn-block" ng-click=""><i class="fa fa-location-arrow"></i> Watch Demo</button>
+					<button class="btn btn-secondary btn-large btn-block disabled" ng-click=""><i class="fa fa-location-arrow"></i> Watch Demo</button>
 				</div>
 			</li>
 		</ul>
 	</div>
 	<div class="well">
-		<button class="btn btn-default" ng-click="vm.clearSession()">Clear Session ID</button>
-		<button class="btn btn-default" ng-click="vm.forceOriginal()">Force Original</button>
-		<button class="btn btn-default" ng-click="vm.forceVariant()">Force Varient</button>
+		<button class="btn btn-small" ng-click="vm.clearSession()">Clear Session ID</button>
+		<button class="btn btn-small" ng-click="vm.forceOriginal()">Force Original</button>
+		<button class="btn btn-small" ng-click="vm.forceVariant()">Force Varient</button>
 	</div>
 </div>
