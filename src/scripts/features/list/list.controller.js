@@ -69,11 +69,11 @@
         }
 
         function forceOriginal() {
-            cookiesService.set('session_id', 2);
+            cookiesService.set('session_id', 1);
         }
 
         function forceVariant() {
-            cookiesService.set('session_id', 1);
+            cookiesService.set('session_id', 2);
         }
 
         function close() {
