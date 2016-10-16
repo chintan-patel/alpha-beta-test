@@ -6,18 +6,20 @@
 
     function ModalController($scope, $uibModalStack, abService) {
         var vm = this;
+
         vm.variation = false;
-        vm.modal;
         vm.developerDebug = false;
-        vm.submit = submit;
-        vm.user = {
-            state: ''
-        }
+        vm.user = {};
+        vm.states = {};
         vm.closeModal = closeModal;
+        vm.submit = submit;
 
         init();
 
         function init() {
+            vm.user = {
+                state: ''
+            };
             vm.variation = abService.get('session_id');
         }
 
