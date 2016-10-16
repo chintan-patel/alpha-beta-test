@@ -6,7 +6,6 @@ var path = require('path');
 var del = require('del');
 var copy = require('gulp-copy');
 var concat = require('gulp-concat');
-var es = require('event-stream');
 var order = require('gulp-order');
 var watch = require('gulp-watch');
 var browserSync = require('browser-sync').create();
@@ -28,6 +27,7 @@ gulp.task('concat', function () {
         .pipe(order([
             '**/app.module.js',
             '**/*.module.js',
+            '**/*.service.js',
             '**/*.js'
         ]))
         .pipe(concat('scripts/main.js'))
@@ -63,6 +63,10 @@ gulp.task('copyFonts', function () {
         .pipe(gulp.dest('./dest/public/fonts'));
 });
 
+gulp.task('copyImages', function () {
+    return gulp.src(['./src/images/**'])
+        .pipe(gulp.dest('./dest/public/images'));
+});
 
 gulp.task('watch', function () {
     browserSync.init({
@@ -74,5 +78,5 @@ gulp.task('watch', function () {
     gulp.start('default');
 });
 
-gulp.task('default', ['copy', 'copyTemplates', 'copyFonts', 'less', 'concatBowerFiles', 'concat', 'inject'], function () {
+gulp.task('default', ['copy', 'copyTemplates', 'copyFonts', 'copyImages', 'less', 'concatBowerFiles', 'concat', 'inject'], function () {
 });

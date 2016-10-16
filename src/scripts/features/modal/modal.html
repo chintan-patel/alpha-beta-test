@@ -1,0 +1,24 @@
+<div class="container-fluid priceModal">
+	<form class="form form-horizontal" name="vm.form">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="form-group">
+					<label for="formGroupExampleInput">&nbsp;</label>
+					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+				</div>
+				<div class="form-group">
+					<label for="formGroupExampleInput2">&nbsp;</label>
+					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+				{{vm.variation}}
+				<img ng-if="vm.variation" style="width:100%" ng-src="/public/images/image.png" alt="" />
+				<img ng-if="!vm.variation" style="width:100%" ng-src="/public/images/image-variation.png" alt="" />
+
+			</div>
+		</div>
+	</form>
+	<div class="close-button" ng-click="vm.closeModal()"><i class="fa fa-close"></i></div>
+</div>

@@ -6,10 +6,10 @@
 
     function configuration($stateProvider) {
         $stateProvider
-            .state('list', {
-                url: '/',
-                templateUrl: '/public/scripts/features/list/list.html',
-                controller: 'ListController as vm',
+            .state('modal', {
+                url: '/modal',
+                templateUrl: '/public/scripts/features/modal/modal.html',
+                controller: 'ModalController as vm',
                 controllerAs: 'vm'
             });
     }

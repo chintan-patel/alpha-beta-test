@@ -1,11 +1,26 @@
 <div class="container">
-	<div class="row" ng-repeat="product in vm.productList">
-		<div class="col-lg-4 col-md-4 col-sm-4 col-sm-4">
-            {{product.name}}
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-sm-6">
-			<div class="btn btn-primary" ng-click="vm.showPrice(product)"><i class="fa fa-usd"></i> Price</div>
-		</div>
+	<div class="row">
+		<ul class="list-group">
+			<li ng-repeat="product in vm.productList" class="list-group-item clearfix">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<h1 class="text-center">
+						<i class="fa" ng-class="product.image"></i>
+					</h1>
+					<h4>{{product.name}}</h4>
+					<p>{{product.description}}</p>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+					<button class="btn btn-primary btn-large btn-block" ng-click="vm.showPrice(product)"><i class="fa fa-usd"></i> Price</button>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+					<button class="btn btn-secondary btn-large btn-block" ng-click=""><i class="fa fa-location-arrow"></i> Watch Demo</button>
+				</div>
+			</li>
+		</ul>
 	</div>
-
+	<div class="well">
+		<button class="btn btn-default" ng-click="vm.clearSession()">Clear Session ID</button>
+		<button class="btn btn-default" ng-click="vm.forceOriginal()">Force Original</button>
+		<button class="btn btn-default" ng-click="vm.forceVariant()">Force Varient</button>
+	</div>
 </div>
