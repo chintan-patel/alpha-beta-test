@@ -516,7 +516,7 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-concat-with-sourcemaps@^1.0.0:
+concat-with-sourcemaps@*, concat-with-sourcemaps@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/concat-with-sourcemaps/-/concat-with-sourcemaps-1.0.4.tgz#f55b3be2aeb47601b10a2d5259ccfb70fd2f1dd6"
   dependencies:
@@ -770,9 +770,21 @@ etag@^1.7.0, etag@~1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.7.0.tgz#03d30b5f67dd6e632d2945d30d6652731a34d5d8"
 
-event-stream, event-stream@^3.1.0, event-stream@^3.1.1, event-stream@^3.1.7:
+event-stream, event-stream@*, event-stream@^3.1.0, event-stream@^3.1.1, event-stream@^3.1.7:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
+  dependencies:
+    duplexer "~0.1.1"
+    from "~0"
+    map-stream "~0.1.0"
+    pause-stream "0.0.11"
+    split "0.3"
+    stream-combiner "~0.0.4"
+    through "~2.3.1"
+
+event-stream@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/event-stream/-/event-stream-3.3.2.tgz#3cc310feb1f28d2f62b2a085d736a9ef566378b8"
   dependencies:
     duplexer "~0.1.1"
     from "~0"
@@ -1227,7 +1239,18 @@ gulp-angular-filesort:
     ng-dependencies "~0.2.0"
     toposort "~0.2.10"
 
-gulp-concat:
+gulp-angular-templatecache:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-angular-templatecache/-/gulp-angular-templatecache-2.0.0.tgz#29b4071ee5574481c069a162bce8967534f17155"
+  dependencies:
+    event-stream "3.3.2"
+    gulp-concat "2.6.0"
+    gulp-footer "1.0.5"
+    gulp-header "1.8.2"
+    gulp-util "3.0.7"
+    jsesc "2.2.0"
+
+gulp-concat, gulp-concat@2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/gulp-concat/-/gulp-concat-2.6.0.tgz#585cfb115411f348773131140566b6a81c69cb91"
   dependencies:
@@ -1241,6 +1264,23 @@ gulp-copy:
   dependencies:
     gulp-util "~2.2.9"
     through "2.3.4"
+
+gulp-footer@1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/gulp-footer/-/gulp-footer-1.0.5.tgz#e84ca777e266be7bbc2d45d2df0e7eba8dfa3e54"
+  dependencies:
+    event-stream "*"
+    gulp-util "*"
+    lodash.assign "*"
+
+gulp-header@1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/gulp-header/-/gulp-header-1.8.2.tgz#3ab222f53719d2d03d81d9134252fe7d52425aa4"
+  dependencies:
+    concat-with-sourcemaps "*"
+    gulp-util "*"
+    object-assign "*"
+    through2 "^2.0.0"
 
 gulp-inject:
   version "4.1.0"
@@ -1283,7 +1323,7 @@ gulp-order:
     minimatch "~0.2.14"
     through "~2.3.4"
 
-gulp-util@^3.0.0, gulp-util@^3.0.1, gulp-util@^3.0.2, gulp-util@^3.0.6, gulp-util@^3.0.7:
+gulp-util@*, gulp-util@^3.0.0, gulp-util@^3.0.1, gulp-util@^3.0.2, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.7.tgz#78925c4b8f8b49005ac01a011c557e6218941cbb"
   dependencies:
@@ -1684,6 +1724,10 @@ jsbn@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.0.tgz#650987da0dd74f4ebf5a11377a2aa2d273e97dfd"
 
+jsesc@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-2.2.0.tgz#c35a8613a3806c8ec3bafc0b0e196f020f7aab01"
+
 json-schema@0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
@@ -1884,6 +1928,10 @@ lodash._shimkeys@~2.4.1:
   resolved "https://registry.yarnpkg.com/lodash._shimkeys/-/lodash._shimkeys-2.4.1.tgz#6e9cc9666ff081f0b5a6c978b83e242e6949d203"
   dependencies:
     lodash._objecttypes "~2.4.1"
+
+lodash.assign@*:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
 
 lodash.assign@^3.0.0:
   version "3.2.0"
@@ -2268,13 +2316,13 @@ oauth-sign@~0.8.0, oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
+object-assign@*, object-assign@^4.0.1, object-assign@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
+
 object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
-
-object-assign@^4.0.1, object-assign@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
 
 object-component@0.0.3:
   version "0.0.3"

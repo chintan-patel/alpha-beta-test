@@ -11,8 +11,6 @@ var order = require('gulp-order');
 var watch = require('gulp-watch');
 var browserSync = require('browser-sync').create();
 
-
-
 gulp.task('clean', function () {
     return del([
         'dest/public',
@@ -21,19 +19,17 @@ gulp.task('clean', function () {
 });
 gulp.task('inject', function () {
     return gulp.src('src/index.html')
-        .pipe(inject(gulp.src(['dest/public/**/*.js', 'dest/public/**/*.css'], {read: false}), {ignorePath: 'dest/', addRootSlash: true}))
+        .pipe(inject(gulp.src(['dest/public/**/*.js', 'dest/public/**/*.css'], { read: false }), { ignorePath: 'dest/', addRootSlash: true }))
         .pipe(gulp.dest('./dest'));
 });
 
 gulp.task('concat', function () {
     return gulp.src(['src/scripts/**/*.js'])
         .pipe(order([
-            'src/scripts/**/*.module.js',
-            'src/scripts/**/*.routes.js',
-            'src/scripts/**/*.controller.js',
-            'src/scripts/**/*.service.js',
-            'src/scripts/**/*.js'
-        ], { base: './' }))
+            '**/app.module.js',
+            '**/*.module.js',
+            '**/*.js'
+        ]))
         .pipe(concat('scripts/main.js'))
         .pipe(gulp.dest('./dest/public'));
 });
@@ -57,15 +53,26 @@ gulp.task('copy', function () {
         .pipe(gulp.dest('./dest'));
 });
 
+gulp.task('copyTemplates', function () {
+    return gulp.src(['./src/**/*.html', '!./src/index.html'])
+        .pipe(gulp.dest('./dest/public'));
+});
+
+gulp.task('copyFonts', function () {
+    return gulp.src(['./bower_components/bootstrap/dist/fonts/**', './bower_components/font-awesome/fonts/**'])
+        .pipe(gulp.dest('./dest/public/fonts'));
+});
+
+
 gulp.task('watch', function () {
     browserSync.init({
         server: {
             baseDir: "dest"
         }
     });
-    gulp.watch('src/**/*', ['default'])
-    gulp.watch("dest/*.html").on('change', browserSync.reload);
+    gulp.watch('src/**/*', ['default']).on('change', browserSync.reload);
+    gulp.start('default');
 });
 
-gulp.task('default', ['copy', 'less', 'concatBowerFiles', 'concat', 'inject'], function () {
+gulp.task('default', ['copy', 'copyTemplates', 'copyFonts', 'less', 'concatBowerFiles', 'concat', 'inject'], function () {
 });
