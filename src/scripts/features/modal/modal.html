@@ -7,7 +7,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 				<div class="form-group">
 					<label for="formGroupExampleInput">&nbsp;</label>
-					<input type="text" class="form-control" name="name" ng-model="vm.user.name" placeholder="Name*" ng-required="true" />
+					<input type="text" class="form-control" name="name" ng-keyup="vm.enterName()" ng-model="vm.user.name" placeholder="Name*" ng-required="true" />
 					<div class="help-block alert alert-danger" ng-if="(form.$submitted || form.name.$dirty) && form.name.$error.required">
 						Name is a required field.
 					</div>

@@ -13,6 +13,7 @@
         vm.states = {};
         vm.closeModal = closeModal;
         vm.submit = submit;
+        vm.enterName = enterName;
 
         init();
 
@@ -21,6 +22,13 @@
                 state: ''
             };
             vm.variation = abService.get('session_id');
+            vm.user.variation = vm.variation;
+        }
+
+        function enterName() {
+            if(vm.user && vm.user.name) {
+                console.log(vm.user.name);
+            }
         }
 
         function submit() {
