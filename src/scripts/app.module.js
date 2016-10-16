@@ -1,3 +1,5 @@
 (function(){
-    console.log('I am in module 1');
+    angular.module('alphaBeta', [
+    ]);
+
 })();
