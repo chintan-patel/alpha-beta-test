@@ -21,6 +21,7 @@
   "dependencies": {
     "angular-bootstrap": "^2.2.0",
     "angular-ui-router": "^0.3.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3"
   }
 }

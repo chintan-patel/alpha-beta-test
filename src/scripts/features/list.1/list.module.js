@@ -1,6 +1,6 @@
 (function(){
 
-    angular.module('alphaBeta.modal', [
+    angular.module('alphaBeta.list', [
         'alphaBeta.core'
     ]);
 })();
