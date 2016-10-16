@@ -1,24 +1,81 @@
 <div class="container-fluid priceModal">
-	<form class="form form-horizontal" name="vm.form">
+	<form class="form form-horizontal" name="form" ng-submit="form.$error && vm.submit()" novalidate>
+		<div class="row visible-xs">
+			<h3>Price Quote</h3>
+		</div>
 		<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 				<div class="form-group">
 					<label for="formGroupExampleInput">&nbsp;</label>
-					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+					<input type="text" class="form-control" name="name" ng-model="vm.user.name" placeholder="Name" ng-required="true" />
+					<div class="help-block alert alert-danger" ng-if="form.name.$dirty && form.name.$error.required">
+						Name is a required field.
+					</div>
 				</div>
-				<div class="form-group">
-					<label for="formGroupExampleInput2">&nbsp;</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+
+				<div class="form-group ">
+					<label for="">&nbsp;</label>
+					<input type="email" class="form-control" name="email" ng-model="vm.user.email" placeholder="Email" required />
+					<div class="help-block alert alert-danger" ng-if="form.email.$dirty && form.email.$invalid">
+						<div ng-if="form.email.$error.required">
+							Email is a required field.
+						</div>
+						<div ng-if="form.email.$error.email">
+							Enter a valid email address
+						</div>
+					</div>
+				</div>
+				<div class="form-group ">
+					<label for="">&nbsp;</label>
+					<input type="tel" class="form-control" name="phoneNumber" ng-model="vm.user.phone" placeholder="Phone" />
+				</div>
+				<div class="form-group ">
+					<label for="">&nbsp;</label>
+					<input type="text" class="form-control" name="address" ng-model="vm.user.address" id="" placeholder="Address" />
+				</div>
+				<div class="form-group ">
+					<label for="">&nbsp;</label>
+					<input type="text" class="form-control" name="city" ng-model="vm.user.city" placeholder="City" />
+				</div>
+
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<div class="form-group">
+							<select name="form.state" ng-model="vm.user.state" ng-options="key as value for (key,value) in vm.states" class="form-control">
+								<option ng-value="0">State</option>
+							</select>
+							<span class="caret"></span>
+						</div>
+					</div>
+					<div class=" col-md-offset-1 col-lg-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-5 col-md-5 col-sm-5 col-xs-5">
+						<div class="form-group">
+							<input type="text" class="form-control zipcode" name="zipcode" ng-model="vm.user.zipcode" placeholder="Zip Code" />
+						</div>
+					</div>
+				</div>
+				<div class="form-group text-center visible-xs">
+					<input type="submit" class="btn btn-primary btn-large btn-block" name="submitButton" ng-disabled="form.$invalid" value="Submit"
+					/>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-				{{vm.variation}}
-				<img ng-if="vm.variation" style="width:100%" ng-src="/public/images/image.png" alt="" />
-				<img ng-if="!vm.variation" style="width:100%" ng-src="/public/images/image-variation.png" alt="" />
-
+			<div class="col-lg-8 col-md-8 col-sm-8 hidden-xs image-container">
+				<div class="thumbnail ">
+					<img ng-if="vm.variation" style="" ng-src="/public/images/image.png" alt="" />
+					<img ng-if="!vm.variation" style="" ng-src="/public/images/image-variation.png" alt="" />
+				</div>
+				<div class="form-group text-center">
+					<input type="submit" class="btn btn-primary btn-large" name="submitButton" ng-disabled="form.$invalid" value="Submit" />
+				</div>
 			</div>
 		</div>
+		<div class="form-group hide">
+			<input type="checkbox" class="" ng-model="vm.developerDebug" /> Show Developer tool
+		</div>
+		<div class="well" ng-if="vm.developerDebug">
+			<pre>{{form | json}}</pre>
+		</div>
 	</form>
+
 	<div class="close-button" ng-click="vm.closeModal()"><i class="fa fa-close"></i></div>
 </div>
