@@ -1,0 +1,88 @@
+@media screen and (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 767px) {
+}
+.modal-content {
+  border-radius: 0px;
+}
+@media (min-width: 960px) {
+  .modal-dialog {
+    width: 900px;
+    margin: 30px auto;
+  }
+}
+.priceModal {
+  padding: 20px;
+  position: relative;
+}
+.priceModal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 22px;
+  cursor: pointer;
+}
+.priceModal .close-button:hover {
+  color: #333;
+}
+.priceModal .form {
+  padding: 10px;
+}
+.priceModal .form .form-group input.form-control {
+  border-radius: 0px;
+}
+.priceModal .form .form-group input.form-control:hover,
+.priceModal .form .form-group input.form-control:focus {
+  -webkit-box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #999;
+  background: #fafafa;
+  border-color: #999;
+  outline: 0;
+}
+.priceModal .form .form-group select {
+  -webkit-appearance: none!important;
+  background-position-x: 97%;
+  background-position-y: center;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  height: 34px;
+  color: #999;
+}
+.priceModal .form .form-group select.valid {
+  color: #555;
+}
+.priceModal .form .form-group .caret {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+.priceModal .form .form-group .help-block.alert-danger {
+  margin: 0;
+  border-radius: 0;
+  font-style: italic;
+  padding: 5px 5px;
+  font-weight: 400;
+  background: #e75600;
+  color: #fff;
+  border-color: #e75600;
+}
+.priceModal .form .image-container .thumbnail {
+  border-color: transparent;
+}
+.priceModal .form .image-container .form-group {
+  margin: 20px 0;
+}

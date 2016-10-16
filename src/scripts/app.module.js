@@ -1,7 +1,8 @@
 (function(){
     angular.module('alphaBeta', [
         'alphaBeta.core',
-        'alphaBeta.list'
+        'alphaBeta.list',
+        'alphaBeta.modal'
     ]);
 
     angular.module('alphaBeta')

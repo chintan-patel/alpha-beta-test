@@ -1,0 +1,41 @@
+@import '../../bower_components/bootstrap/less/bootstrap.less';
+@import '../../bower_components/font-awesome/less/font-awesome.less';
+@btn-default-color: #fff;
+@btn-default-bg: #eb6b00;
+@btn-default-border: #e56800;
+
+@btn-primary-color: #ffffff;
+@btn-primary-bg: #87c569;
+@btn-primary-border: #66ae43;
+
+@box-shadow: 0 1px 0 rgba(255,255,255,.25) inset;
+@transition: background-color .3s ease-out;
+body {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    line-height: 1;
+    cursor: default;
+    button {
+        font-weight: 700 !important;
+    }
+    .btn-secondary {
+        .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+        .box-shadow(@box-shadow);
+        .transition(@transition);
+    }
+    .btn-primary {
+        .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+        .box-shadow(@box-shadow);
+        .transition(@transition);
+    }
+    .container-fluid {
+        .navbar-brand {
+            .glyphicon {
+                color: #feb155;
+            }
+        }
+    }
+}
